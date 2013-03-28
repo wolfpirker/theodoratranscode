@@ -3,7 +3,7 @@ Installation Instructions
 
 to install and use this program you will need following dependencies:
  * glib2-devel 
- * json-glib-devel (?)
+ * json-glib-devel
  * gtk3-devel (>= 3.4)
  * Vala, valac (tested with Vala 0.18.1)
  * ffmpeg2theora with all of it's dependencies (tested with ffmpeg2theora 0.29) 
