@@ -28,7 +28,6 @@ more polished in the next months
 the app during conversion, make use of the notification bar)
 	- possibly give better Feedback, in the GUI when there is an ongoing conversion
 	- perhaps: make the program compatible with some Windows releases
-	- perhaps: avoid the Vala dependency
 	- perhaps: support several languages 
 * possiblities in the longer term:  
 	- instead of only being a GUI for ffmpeg2theora, it might be possible to implement

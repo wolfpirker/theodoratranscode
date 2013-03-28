@@ -40,4 +40,3 @@ installing it:
 //const string UI_FILE = Config.PACKAGE_DATA_DIR + "/" + "theodoratranscode.ui";
 * in this same file uncomment the line afterwards:
 const string UI_FILE = "src/theodoratranscode.ui";
-* mv ./src/theodoratranscode ./theodoratranscode
