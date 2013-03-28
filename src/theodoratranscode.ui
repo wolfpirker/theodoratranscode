@@ -2457,6 +2457,7 @@
                                 <items>
                                   <item translatable="yes">gnome-mplayer</item>
                                   <item translatable="yes">mplayer</item>
+                                  <item translatable="yes">snappy</item>
                                   <item translatable="yes">totem</item>
                                   <item translatable="yes">VLC</item>
                                 </items>
