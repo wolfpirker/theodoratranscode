@@ -3,13 +3,13 @@ Installation Instructions
 
 to install and use this program you will need following dependencies:
  * glib2-devel 
- * json-glib-devel (?)
+ * json-glib-devel
  * gtk3-devel (>= 3.4)
  * Vala, valac (tested with Vala 0.18.1)
  * ffmpeg2theora with all of it's dependencies (tested with ffmpeg2theora 0.29) 
  * and more (like gcc, make, glibc, etc)
 
-configure and compile it with the following from the root directory:
+configure and compile it with the following from the projects root directory (as user):
   > ./configure
   > make
 
@@ -40,3 +40,10 @@ installing it:
 //const string UI_FILE = Config.PACKAGE_DATA_DIR + "/" + "theodoratranscode.ui";
 * in this same file uncomment the line afterwards:
 const string UI_FILE = "src/theodoratranscode.ui";
+Then use the command:
+* mv ./src/theodoratranscode ./theodoratranscode
+Now it should be possible to use theodoratranscode.
+
+The program was during the development successfully tested on Fedora 17 and Fedora 18. 
+Under Debian Wheezy it might not work. Last time I tested it in Anjuta under a Debian Wheezy
+based distro it did not work, because of the InfoBars.

@@ -45,4 +45,5 @@ Then use the command:
 Now it should be possible to use theodoratranscode.
 
 The program was during the development successfully tested on Fedora 17 and Fedora 18. 
-Under Debian Wheezy it might not work - last time I checked GUI's with GtkInfoBars were not working in the Anjuta IDE under a Debian Wheezy based linux distro.
+Under Debian Wheezy it might not work. Last time I tested it in Anjuta under a Debian Wheezy
+based distro it did not work, because of the InfoBars.
