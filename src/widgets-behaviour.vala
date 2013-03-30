@@ -123,14 +123,14 @@ namespace NSWidgets{
 			active_tab = "basics";
 			this.hide_infoboxes();
 			ibar.show();
-			advice_label.set_text("In case a filename is entered as target, the file will " +
-			                      "be stored in your user home directory.\n\n" +
+			advice_label.set_text("In case a filename is entered as destination, the file will " +
+			                      "be stored in your home user directory.\n\n" +
 								  "Tips on Subtitle section\n" +
-			                      "if you want to specify more than one subtitle, " +
+			                      "* to specify more than one subtitle, " +
 			                      "you can do this via Other→parameters.\n" +
 			                      "if you leave the encoding field blank, UTF-8 will be " +
-								  "used, which works in most cases.\n" +
-								  "For a list of supported encodings you can use the " + 
+					      "used, which works mostly.\n" +
+					      "For a list of supported encodings use the " + 
 			                      "'iconv -l' command.\n.");
 		}
 
@@ -143,12 +143,12 @@ namespace NSWidgets{
 			ibar.show();
 			advice_label.set_text("* the video qualifier: use higher values for better quality (default: 6)\n" +
 			                      "* the audio qualifier: use higher value for better quality (default: 1)\n" +
-			                      "* as alternative to the qualifiers, it is possible to set a bitrate.\n" +
+			                      "* as alternative, it is possible to set a bitrate (the scale below).\n" +
 			                      "optimize: makes the quality/filesize ratio better, " +
 			                      "but is a bit slower.\n" +
 			                      "soft-target and two-pass can be enabled if a Video Bitrate is specified.\n" +
 			                      "soft-target: less strict rate control, but with otherwise higher quality.\n" +
-			                      "two-pass: slower conversion, but with higher quality.");		
+			                      "two-pass: slower conversion, with quality a bit better.");		
 		}
 	
 		[CCode (cname="on_rbtn_crop_toggled", instance_pos=-1)]
@@ -163,7 +163,7 @@ namespace NSWidgets{
 			                      "After a click on preview the file preview.ogv is saved \n" + 
 			                      "in the directory for temporary files (likely /tmp/).\n" +
 			                      "With Fast preview enabled the preview will result " +
-			                      "in worse\nquality and/or higher bitrate than otherwise.\n" 			                  
+			                      "in worse\nquality and/or higher bitrate than otherwise.\n" +
 			                      );		
 		
 		}
@@ -184,9 +184,10 @@ namespace NSWidgets{
 			advice_label.set_text("Contrast, Gamma and Saturation have a default value " +
 			                      "of 1.0.\n" +
 			                      "lower values in the color settings make the video darker" +
-			                      " or in case of\nsaturation greyer.\n" +
-			                      "For a list of parameters you can click on the button " +
-			                      "ffmpeg2theora help.");
+			                      "except in the case\nof saturation greyer.\n" +
+			                      "For a list of parameters, click on the button " +
+			                      "ffmpeg2theora help.\nMost filter adjustment have " +
+			                      "rather little effect on the quality.");
 		}
 
 		private void hide_infoboxes ()

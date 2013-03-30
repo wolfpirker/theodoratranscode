@@ -188,13 +188,11 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="btn_yes">
-                <property name="use_action_appearance">False</property>
                 <property name="width_request">60</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="margin_right">12</property>
-                <property name="use_action_appearance">False</property>
                 <signal name="released" handler="on_btn_yes_released" object="grid_resolution" swapped="no"/>
                 <signal name="clicked" handler="on_btn_yes_clicked" object="grid_cropping" swapped="no"/>
                 <child>
@@ -237,12 +235,10 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_no">
-                <property name="use_action_appearance">False</property>
                 <property name="width_request">60</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
                 <signal name="released" handler="on_btn_no_released" object="infbar_update_resolution" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="box6">
@@ -377,11 +373,9 @@
                 </child>
                 <child>
                   <object class="GtkRadioButton" id="rbtn_basics">
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">False</property>
@@ -430,11 +424,9 @@
                 </child>
                 <child>
                   <object class="GtkRadioButton" id="rbtn_quality">
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">False</property>
                     <property name="group">rbtn_basics</property>
@@ -483,11 +475,9 @@
                 </child>
                 <child>
                   <object class="GtkRadioButton" id="rbtn_crop">
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">False</property>
                     <property name="group">rbtn_basics</property>
@@ -532,11 +522,9 @@
                 </child>
                 <child>
                   <object class="GtkRadioButton" id="rbtn_other">
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">False</property>
                     <property name="group">rbtn_basics</property>
@@ -598,11 +586,9 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_help">
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="use_action_appearance">False</property>
                     <signal name="clicked" handler="on_btn_help_clicked" swapped="no"/>
                     <child>
                       <object class="GtkGrid" id="grid5">
@@ -662,11 +648,9 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_advice">
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="use_action_appearance">False</property>
                     <signal name="clicked" handler="on_btn_advice_clicked" swapped="no"/>
                     <child>
                       <object class="GtkBox" id="box30">
@@ -725,13 +709,11 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_conversion">
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="valign">end</property>
                     <property name="hexpand">True</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="image_position">bottom</property>
                     <signal name="clicked" handler="on_btn_conversion_clicked_update_timelabel" object="grid_time_basics" swapped="no"/>
                     <signal name="clicked" handler="on_btn_conversion_clicked" swapped="no"/>
@@ -868,7 +850,7 @@
                         <property name="margin_left">12</property>
                         <property name="margin_right">4</property>
                         <property name="margin_top">15</property>
-                        <property name="label" translatable="yes">_Target:</property>
+                        <property name="label" translatable="yes">_Destination:</property>
                         <property name="use_underline">True</property>
                         <attributes>
                           <attribute name="font-desc" value="&lt;Geben Sie den Wert ein&gt; 11"/>
@@ -920,13 +902,11 @@
                     <child>
                       <object class="GtkRadioButton" id="rbtn_basics0">
                         <property name="label" translatable="yes">none</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="margin_left">15</property>
                         <property name="margin_top">12</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
                         <property name="draw_indicator">True</property>
                         <property name="group">rbtn_basics_default</property>
@@ -962,13 +942,11 @@
                     <child>
                       <object class="GtkRadioButton" id="rbtn_basics1">
                         <property name="label" translatable="yes">subtitle file</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="margin_left">15</property>
                         <property name="margin_top">6</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
                         <property name="draw_indicator">True</property>
                         <property name="group">rbtn_basics_default</property>
@@ -983,13 +961,11 @@
                     <child>
                       <object class="GtkRadioButton" id="rbtn_basics_default">
                         <property name="label" translatable="yes">subtitle as from input</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="margin_left">15</property>
                         <property name="margin_top">6</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
                         <property name="active">True</property>
                         <property name="draw_indicator">True</property>
@@ -1493,13 +1469,11 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality0">
                             <property name="label" translatable="yes">fix</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="halign">end</property>
                             <property name="margin_left">15</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_cbtn_quality0_toggled" object="cbtn_quality5" swapped="no"/>
@@ -1514,13 +1488,11 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality2">
                             <property name="label" translatable="yes">same as input</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="halign">end</property>
                             <property name="margin_left">10</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
@@ -1535,13 +1507,11 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality1">
                             <property name="label" translatable="yes">fix</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="halign">end</property>
                             <property name="margin_left">10</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
                           </object>
@@ -1555,14 +1525,12 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality3">
                             <property name="label" translatable="yes">optimize</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="halign">start</property>
                             <property name="valign">start</property>
                             <property name="margin_left">15</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
@@ -1577,13 +1545,11 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality4">
                             <property name="label" translatable="yes">soft-target</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="valign">start</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
                           </object>
@@ -1597,13 +1563,11 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality5">
                             <property name="label" translatable="yes">two-pass</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="valign">start</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
                           </object>
@@ -2073,7 +2037,6 @@
                         <property name="can_focus">False</property>
                         <child>
                           <object class="GtkButton" id="btn_preview">
-                            <property name="use_action_appearance">False</property>
                             <property name="height_request">34</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -2081,7 +2044,6 @@
                             <property name="valign">start</property>
                             <property name="margin_top">6</property>
                             <property name="margin_bottom">6</property>
-                            <property name="use_action_appearance">False</property>
                             <signal name="clicked" handler="on_btn_preview_clicked" swapped="no"/>
                             <child>
                               <object class="GtkBox" id="box32">
@@ -2242,13 +2204,11 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_preview1">
                             <property name="label" translatable="yes">more speed, less quality</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="valign">center</property>
                             <property name="margin_left">4</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
@@ -2712,13 +2672,11 @@
                         <property name="can_focus">False</property>
                         <child>
                           <object class="GtkButton" id="btn_new_profile">
-                            <property name="use_action_appearance">False</property>
                             <property name="width_request">90</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="margin_top">8</property>
-                            <property name="use_action_appearance">False</property>
                             <signal name="clicked" handler="on_btn_new_profile_clicked" object="e_profile" swapped="no"/>
                             <child>
                               <object class="GtkBox" id="box39">
@@ -2762,13 +2720,11 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="btn_delete_profile">
-                            <property name="use_action_appearance">False</property>
                             <property name="width_request">90</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="margin_top">8</property>
-                            <property name="use_action_appearance">False</property>
                             <signal name="clicked" handler="on_btn_delete_profile_clicked" object="e_profile" swapped="no"/>
                             <child>
                               <object class="GtkBox" id="box40">
@@ -2812,13 +2768,11 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="btn_save_profile1">
-                            <property name="use_action_appearance">False</property>
                             <property name="width_request">90</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="margin_top">8</property>
-                            <property name="use_action_appearance">False</property>
                             <signal name="clicked" handler="on_btn_save_profile_clicked" swapped="no"/>
                             <child>
                               <object class="GtkBox" id="box41">
@@ -2907,13 +2861,11 @@
                     <child>
                       <object class="GtkLinkButton" id="lbtn_ffmpeg2theora2">
                         <property name="label" translatable="yes">ffmpeg2theora --help</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="has_tooltip">True</property>
                         <property name="halign">start</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="relief">none</property>
                         <property name="uri">http://v2v.cc/~j/ffmpeg2theora/</property>
                       </object>
@@ -2930,14 +2882,12 @@
                         <property name="can_focus">False</property>
                         <child>
                           <object class="GtkButton" id="btn_f2theora_close">
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="halign">end</property>
                             <property name="valign">end</property>
                             <property name="margin_left">12</property>
-                            <property name="use_action_appearance">False</property>
                             <signal name="clicked" handler="on_btn_f2theora_close_clicked" swapped="no"/>
                             <child>
                               <object class="GtkBox" id="box42">
@@ -2980,11 +2930,9 @@
                         <child>
                           <object class="GtkToggleButton" id="tbtn_show_filters">
                             <property name="label" translatable="yes">show filters</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="use_action_appearance">False</property>
                             <signal name="toggled" handler="on_tbtn_show_filters_toggled" swapped="no"/>
                           </object>
                           <packing>

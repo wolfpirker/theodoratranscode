@@ -58,13 +58,13 @@ public class Main : Gtk.Application
 	public Main (){
 
 		try { 
-			advice_label = new Gtk.Label("In case a filename is entered as target, the file will " +
+			advice_label = new Gtk.Label("In case a filename is entered as destination, the file will " +
 			                      "be stored in your home user directory.\n\n" +
 								  "Tips on Subtitle section\n" +
-			                      "if you want to specify more than one subtitle, " +
+			                      "* to specify more than one subtitle, " +
 			                      "you can do this via Other→parameters.\n" +
 			                      "if you leave the encoding field blank, UTF-8 will be " +
-								  "used, which works in most cases.\n" +
+								  "used, which works mostly.\n" +
 								  "For a list of supported encodings you can use the " + 
 			                      "'iconv -l' command.\n.");
 			builder = new Gtk.Builder() as Gtk.Builder;

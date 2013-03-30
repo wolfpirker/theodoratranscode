@@ -14,6 +14,7 @@
 
 @SET_MAKE@
 
+
 VPATH = @srcdir@
 am__make_dryrun = \
   { \
@@ -50,39 +51,36 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = theodoratranscode$(EXEEXT)
+bin_PROGRAMS = theodoratranscode_c$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(srcdir)/theodoratranscode_vala.stamp $(top_srcdir)/depcomp \
-	command.c file.c theodoratranscode.c widgets-adjutment.c \
-	widgets-behaviour.c widgets-feedback.c widgets-profile.c \
-	widgets-query.c
+	$(top_srcdir)/depcomp $(top_srcdir)/mkinstalldirs
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
-mkinstalldirs = $(install_sh) -d
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-am__installdirs = "$(DESTDIR)$(bindir)"
+am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(uidir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_theodoratranscode_OBJECTS = theodoratranscode.$(OBJEXT) \
-	command.$(OBJEXT) widgets-query.$(OBJEXT) \
+am_theodoratranscode_c_OBJECTS = theodoratranscode.$(OBJEXT) \
+	widgets-adjutment.$(OBJEXT) command.$(OBJEXT) \
+	widgets-profile.$(OBJEXT) file.$(OBJEXT) \
 	widgets-behaviour.$(OBJEXT) widgets-feedback.$(OBJEXT) \
-	widgets-adjutment.$(OBJEXT) widgets-profile.$(OBJEXT) \
-	file.$(OBJEXT)
-theodoratranscode_OBJECTS = $(am_theodoratranscode_OBJECTS)
+	widgets-query.$(OBJEXT)
+theodoratranscode_c_OBJECTS = $(am_theodoratranscode_c_OBJECTS)
 am__DEPENDENCIES_1 =
-theodoratranscode_DEPENDENCIES = $(am__DEPENDENCIES_1)
+theodoratranscode_c_DEPENDENCIES = $(am__DEPENDENCIES_1)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-theodoratranscode_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+theodoratranscode_c_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(AM_CFLAGS) $(CFLAGS) $(theodoratranscode_LDFLAGS) $(LDFLAGS) \
-	-o $@
+	$(AM_CFLAGS) $(CFLAGS) $(theodoratranscode_c_LDFLAGS) \
+	$(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -117,25 +115,46 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-VALACOMPILE = $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS)
-LTVALACOMPILE = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=compile $(VALAC) $(AM_VALAFLAGS) \
-	$(VALAFLAGS)
-AM_V_VALAC = $(am__v_VALAC_@AM_V@)
-am__v_VALAC_ = $(am__v_VALAC_@AM_DEFAULT_V@)
-am__v_VALAC_0 = @echo "  VALAC   " $@;
-am__v_VALAC_1 = 
-SOURCES = $(theodoratranscode_SOURCES)
-DIST_SOURCES = $(theodoratranscode_SOURCES)
+SOURCES = $(theodoratranscode_c_SOURCES)
+DIST_SOURCES = $(theodoratranscode_c_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
+am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
+am__vpath_adj = case $$p in \
+    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
+    *) f=$$p;; \
+  esac;
+am__strip_dir = f=`echo $$p | sed -e 's|^.*/||'`;
+am__install_max = 40
+am__nobase_strip_setup = \
+  srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*|]/\\\\&/g'`
+am__nobase_strip = \
+  for p in $$list; do echo "$$p"; done | sed -e "s|$$srcdirstrip/||"
+am__nobase_list = $(am__nobase_strip_setup); \
+  for p in $$list; do echo "$$p $$p"; done | \
+  sed "s| $$srcdirstrip/| |;"' / .*\//!s/ .*/ ./; s,\( .*\)/[^/]*$$,\1,' | \
+  $(AWK) 'BEGIN { files["."] = "" } { files[$$2] = files[$$2] " " $$1; \
+    if (++n[$$2] == $(am__install_max)) \
+      { print $$2, files[$$2]; n[$$2] = 0; files[$$2] = "" } } \
+    END { for (dir in files) print dir, files[dir] }'
+am__base_list = \
+  sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
+  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
+am__uninstall_files_from_dir = { \
+  test -z "$$files" \
+    || { test ! -d "$$dir" && test ! -f "$$dir" && test ! -r "$$dir"; } \
+    || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
+         $(am__cd) "$$dir" && rm -f $$files; }; \
+  }
+DATA = $(ui_DATA)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
+ALL_LINGUAS = @ALL_LINGUAS@
 AMTAR = @AMTAR@
 AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
 AR = @AR@
@@ -143,12 +162,15 @@ AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
 AWK = @AWK@
+CATALOGS = @CATALOGS@
+CATOBJEXT = @CATOBJEXT@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CYGPATH_W = @CYGPATH_W@
+DATADIRNAME = @DATADIRNAME@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DLLTOOL = @DLLTOOL@
@@ -160,12 +182,25 @@ ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 FGREP = @FGREP@
+GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
+GMOFILES = @GMOFILES@
+GMSGFMT = @GMSGFMT@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+INSTOBJEXT = @INSTOBJEXT@
+INTLLIBS = @INTLLIBS@
+INTLTOOL_EXTRACT = @INTLTOOL_EXTRACT@
+INTLTOOL_MERGE = @INTLTOOL_MERGE@
+INTLTOOL_PERL = @INTLTOOL_PERL@
+INTLTOOL_UPDATE = @INTLTOOL_UPDATE@
+INTLTOOL_V_MERGE = @INTLTOOL_V_MERGE@
+INTLTOOL_V_MERGE_OPTIONS = @INTLTOOL_V_MERGE_OPTIONS@
+INTLTOOL__v_MERGE_ = @INTLTOOL__v_MERGE_@
+INTLTOOL__v_MERGE_0 = @INTLTOOL__v_MERGE_0@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
@@ -177,6 +212,10 @@ LTLIBOBJS = @LTLIBOBJS@
 MAKEINFO = @MAKEINFO@
 MANIFEST_TOOL = @MANIFEST_TOOL@
 MKDIR_P = @MKDIR_P@
+MKINSTALLDIRS = @MKINSTALLDIRS@
+MSGFMT = @MSGFMT@
+MSGFMT_OPTS = @MSGFMT_OPTS@
+MSGMERGE = @MSGMERGE@
 NM = @NM@
 NMEDIT = @NMEDIT@
 OBJDUMP = @OBJDUMP@
@@ -194,15 +233,20 @@ PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
 PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
 PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
+POFILES = @POFILES@
+POSUB = @POSUB@
+PO_IN_DATADIR_FALSE = @PO_IN_DATADIR_FALSE@
+PO_IN_DATADIR_TRUE = @PO_IN_DATADIR_TRUE@
 RANLIB = @RANLIB@
 SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
-THEODORATRANSCODE_CFLAGS = @THEODORATRANSCODE_CFLAGS@
-THEODORATRANSCODE_LIBS = @THEODORATRANSCODE_LIBS@
-VALAC = @VALAC@
+THEODORATRANSCODE_C_CFLAGS = @THEODORATRANSCODE_C_CFLAGS@
+THEODORATRANSCODE_C_LIBS = @THEODORATRANSCODE_C_LIBS@
+USE_NLS = @USE_NLS@
 VERSION = @VERSION@
+XGETTEXT = @XGETTEXT@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -236,6 +280,8 @@ htmldir = @htmldir@
 includedir = @includedir@
 infodir = @infodir@
 install_sh = @install_sh@
+intltool__v_merge_options_ = @intltool__v_merge_options_@
+intltool__v_merge_options_0 = @intltool__v_merge_options_0@
 libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
@@ -256,43 +302,31 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 uidir = $(pkgdatadir)/ui
+ui_DATA = theodoratranscode.ui
 AM_CPPFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\""$(localedir)"\" \
 	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
-	$(THEODORATRANSCODE_CFLAGS) \
-	$(glib-2.0_CFLAGS) \
-	$(json-glib-1.0_CFLAGS)
+	$(THEODORATRANSCODE_C_CFLAGS)
 
 AM_CFLAGS = \
 	 -Wall\
 	 -g
 
-theodoratranscode_SOURCES = \
-	theodoratranscode.vala \
-	config.vapi \
-	theodoratranscode.ui \
-	command.vala \
-	widgets-query.vala \
-	widgets-behaviour.vala \
-	widgets-feedback.vala \
-	widgets-adjutment.vala \
-	widgets-profile.vala \
-	file.vala \
-	theodoratranscode.desktop
+theodoratranscode_c_SOURCES = \
+	theodoratranscode.c \
+	widgets-adjutment.c \
+	command.c \
+	widgets-profile.c \
+	file.c \
+	widgets-behaviour.c \
+	widgets-feedback.c \
+	widgets-query.c
 
-theodoratranscode_VALAFLAGS = \
-	--pkg gtk+-3.0 \
-	--pkg json-glib-1.0 \
-	--pkg glib-2.0   
-
-theodoratranscode_LDFLAGS = \
+theodoratranscode_c_LDFLAGS = \
 	-Wl,--export-dynamic
 
-theodoratranscode_LDADD = $(THEODORATRANSCODE_LIBS) \
-	-lm
-
-theodoratranscodeEXTRA_DIST = saving.vala 
+theodoratranscode_c_LDADD = $(THEODORATRANSCODE_C_LIBS)
 EXTRA_DIST = $(ui_DATA)
 all: all-am
 
@@ -374,9 +408,9 @@ clean-binPROGRAMS:
 	list=`for p in $$list; do echo "$$p"; done | sed 's/$(EXEEXT)$$//'`; \
 	echo " rm -f" $$list; \
 	rm -f $$list
-theodoratranscode$(EXEEXT): $(theodoratranscode_OBJECTS) $(theodoratranscode_DEPENDENCIES) $(EXTRA_theodoratranscode_DEPENDENCIES) 
-	@rm -f theodoratranscode$(EXEEXT)
-	$(AM_V_CCLD)$(theodoratranscode_LINK) $(theodoratranscode_OBJECTS) $(theodoratranscode_LDADD) $(LIBS)
+theodoratranscode_c$(EXEEXT): $(theodoratranscode_c_OBJECTS) $(theodoratranscode_c_DEPENDENCIES) $(EXTRA_theodoratranscode_c_DEPENDENCIES) 
+	@rm -f theodoratranscode_c$(EXEEXT)
+	$(AM_V_CCLD)$(theodoratranscode_c_LINK) $(theodoratranscode_c_OBJECTS) $(theodoratranscode_c_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -413,56 +447,33 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
-$(srcdir)/theodoratranscode.c: $(srcdir)/theodoratranscode_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/theodoratranscode_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/theodoratranscode_vala.stamp; \
-	fi
-$(srcdir)/command.c: $(srcdir)/theodoratranscode_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/theodoratranscode_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/theodoratranscode_vala.stamp; \
-	fi
-$(srcdir)/widgets-query.c: $(srcdir)/theodoratranscode_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/theodoratranscode_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/theodoratranscode_vala.stamp; \
-	fi
-$(srcdir)/widgets-behaviour.c: $(srcdir)/theodoratranscode_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/theodoratranscode_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/theodoratranscode_vala.stamp; \
-	fi
-$(srcdir)/widgets-feedback.c: $(srcdir)/theodoratranscode_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/theodoratranscode_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/theodoratranscode_vala.stamp; \
-	fi
-$(srcdir)/widgets-adjutment.c: $(srcdir)/theodoratranscode_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/theodoratranscode_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/theodoratranscode_vala.stamp; \
-	fi
-$(srcdir)/widgets-profile.c: $(srcdir)/theodoratranscode_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/theodoratranscode_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/theodoratranscode_vala.stamp; \
-	fi
-$(srcdir)/file.c: $(srcdir)/theodoratranscode_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/theodoratranscode_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/theodoratranscode_vala.stamp; \
-	fi
-$(srcdir)/theodoratranscode_vala.stamp: theodoratranscode.vala config.vapi command.vala widgets-query.vala widgets-behaviour.vala widgets-feedback.vala widgets-adjutment.vala widgets-profile.vala file.vala
-	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(theodoratranscode_VALAFLAGS) $(VALAFLAGS) -C theodoratranscode.vala config.vapi command.vala widgets-query.vala widgets-behaviour.vala widgets-feedback.vala widgets-adjutment.vala widgets-profile.vala file.vala
-	$(AM_V_at)mv -f $@-t $@
 
 mostlyclean-libtool:
 	-rm -f *.lo
 
 clean-libtool:
 	-rm -rf .libs _libs
+install-uiDATA: $(ui_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(ui_DATA)'; test -n "$(uidir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(uidir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(uidir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(uidir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(uidir)" || exit $$?; \
+	done
+
+uninstall-uiDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(ui_DATA)'; test -n "$(uidir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(uidir)'; $(am__uninstall_files_from_dir)
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -562,9 +573,9 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(PROGRAMS)
+all-am: Makefile $(PROGRAMS) $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(bindir)"; do \
+	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(uidir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -597,23 +608,6 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
-	-rm -f $(srcdir)/command.c
-	-rm -f $(srcdir)/file.c
-	-rm -f $(srcdir)/theodoratranscode.c
-	-rm -f $(srcdir)/theodoratranscode_vala.stamp
-	-rm -f $(srcdir)/widgets-adjutment.c
-	-rm -f $(srcdir)/widgets-behaviour.c
-	-rm -f $(srcdir)/widgets-feedback.c
-	-rm -f $(srcdir)/widgets-profile.c
-	-rm -f $(srcdir)/widgets-query.c
-	-rm -f command.c
-	-rm -f file.c
-	-rm -f theodoratranscode.c
-	-rm -f widgets-adjutment.c
-	-rm -f widgets-behaviour.c
-	-rm -f widgets-feedback.c
-	-rm -f widgets-profile.c
-	-rm -f widgets-query.c
 clean: clean-am
 
 clean-am: clean-binPROGRAMS clean-generic clean-libtool mostlyclean-am
@@ -636,7 +630,7 @@ info: info-am
 
 info-am:
 
-install-data-am:
+install-data-am: install-uiDATA
 
 install-dvi: install-dvi-am
 
@@ -682,7 +676,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-local
+uninstall-am: uninstall-binPROGRAMS uninstall-local uninstall-uiDATA
 
 .MAKE: install-am install-strip
 
@@ -694,12 +688,12 @@ uninstall-am: uninstall-binPROGRAMS uninstall-local
 	install-data-am install-dvi install-dvi-am install-exec \
 	install-exec-am install-html install-html-am install-info \
 	install-info-am install-man install-pdf install-pdf-am \
-	install-ps install-ps-am install-strip installcheck \
-	installcheck-am installdirs maintainer-clean \
+	install-ps install-ps-am install-strip install-uiDATA \
+	installcheck installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
 	tags uninstall uninstall-am uninstall-binPROGRAMS \
-	uninstall-local
+	uninstall-local uninstall-uiDATA
 
 
 # Remove ui directory on uninstall

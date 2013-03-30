@@ -5,3 +5,6 @@ version 0.2:
 	- added a UI file without infobars, for systems where it does not work
 	(that will be probably the case for the soon released Debian 7)
 
+version 0.2.1:
+	- removed Vala dependency
+

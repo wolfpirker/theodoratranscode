@@ -4,47 +4,36 @@
 
 
 uidir = $(pkgdatadir)/ui
+ui_DATA = theodoratranscode.ui
 
 
 AM_CPPFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\""$(localedir)"\" \
 	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
-	$(THEODORATRANSCODE_CFLAGS) \
-	$(glib-2.0_CFLAGS) \
-	$(json-glib-1.0_CFLAGS)
+	$(THEODORATRANSCODE_C_CFLAGS)
 
 AM_CFLAGS =\
 	 -Wall\
 	 -g
 
-bin_PROGRAMS = theodoratranscode
+bin_PROGRAMS = theodoratranscode_c
 
-theodoratranscode_SOURCES = \
-	theodoratranscode.vala \
-	config.vapi \
-	theodoratranscode.ui \
-	command.vala \
-	widgets-query.vala \
-	widgets-behaviour.vala \
-	widgets-feedback.vala \
-	widgets-adjutment.vala \
-	widgets-profile.vala \
-	file.vala \
-	theodoratranscode.desktop
+theodoratranscode_c_SOURCES =  \
+	theodoratranscode.c \
+	widgets-adjutment.c \
+	command.c \
+	widgets-profile.c \
+	file.c \
+	widgets-behaviour.c \
+	widgets-feedback.c \
+	widgets-query.c
 
-theodoratranscode_VALAFLAGS =  \
-	--pkg gtk+-3.0 \
-	--pkg json-glib-1.0 \
-	--pkg glib-2.0   
-
-theodoratranscode_LDFLAGS = \
+theodoratranscode_c_LDFLAGS = \
 	-Wl,--export-dynamic
 
-theodoratranscode_LDADD = $(THEODORATRANSCODE_LIBS) \
-	-lm
+theodoratranscode_c_LDADD = $(THEODORATRANSCODE_C_LIBS)
 
-theodoratranscodeEXTRA_DIST = saving.vala 
 
 EXTRA_DIST = $(ui_DATA)
 

@@ -138,11 +138,6 @@
     <property name="step_increment">0.125</property>
     <property name="page_increment">0.25</property>
   </object>
-  <object class="GtkFileFilter" id="filefilter_subtitle">
-    <patterns>
-      <pattern>*.srt</pattern>
-    </patterns>
-  </object>
   <object class="GtkFileFilter" id="filefilter_video">
     <patterns>
       <pattern>*.flv</pattern>
@@ -166,6 +161,11 @@
       <pattern>*.MKV</pattern>
       <pattern>*.MOV</pattern>
       <pattern>*.mpeg</pattern>
+    </patterns>
+  </object>
+  <object class="GtkFileFilter" id="filefilter_subtitle">
+    <patterns>
+      <pattern>*.srt</pattern>
     </patterns>
   </object>
   <object class="GtkTextBuffer" id="txb_f2theora_help"/>
@@ -739,7 +739,7 @@
                                 <property name="valign">start</property>
                                 <property name="margin_left">12</property>
                                 <property name="margin_right">4</property>
-                                <property name="label" translatable="yes">_Target:</property>
+                                <property name="label" translatable="yes">_Destination:</property>
                                 <property name="use_underline">True</property>
                                 <attributes>
                                   <attribute name="font-desc" value="&lt;Geben Sie den Wert ein&gt; 11"/>
