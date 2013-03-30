@@ -5,7 +5,6 @@ to install and use this program you will need following dependencies:
  * glib2-devel (under Debian libglib2.0-dev)
  * json-glib-devel (under Debian: libjson-glib-dev)
  * gtk3-devel (version >=3.4; under Debian libgtk-3-0-dev)
- * Vala, valac (tested with Vala 0.16, 0.18.1, 0.20; under Debian libvala-0.16-0)
  * ffmpeg2theora with all of it's dependencies (tested with version 0.27, 0.29) 
  * and more (like gcc, make, glibc or libstdc++, etc)
 

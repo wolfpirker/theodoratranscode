@@ -10,13 +10,14 @@ supported, lack some options ffmpeg2theora provides;
 * in some the quality of the video seems to be less optimized for Theora videos 
 than with ffmpeg2theora
 * some do not offer the possiblity to transcode several files at the same time
+* some do not offer a color correction adjustment feature
 
 ...this program tries to be better with that
 
 About the name:
 
 The name "Theodora Transcode" was partly inspired by the transcoder "Arista Transcode".
-The video codec ffmpeg2theora uses is called Theora, so I though Theodora is a good name.  
+The video codec ffmpeg2theora uses is called Theora, so I thought Theodora is a great name.  
 
 The name "Theodora" has its origin in the Greek language (theos = god, doron = gift).
 A Russian form of this name is Fedora.
@@ -33,6 +34,9 @@ the app during conversion, make use of the notification bar)
 	- instead of only being a GUI for ffmpeg2theora, it might be possible to implement
 	other commandline transcoders as alternative (e.g. ffmpeg, h264enc, or commandline 
 	tools for upcoming codecs such as Daala, VP9)
+
+Note for anyone playing with the C or Vala files: this program was developed with Vala. But
+to avoid the Vala dependency: the Makefiles are configured to use the C files instead! 
 
 If you have any suggestions, feedback or if you want to contribute somehow,
 feel free to send me a message to w_pirker@gmx.de 

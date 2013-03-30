@@ -1,21 +1,31 @@
 ## Process this file with automake to produce Makefile.in
 ## Created by Anjuta
 
-SUBDIRS = src 
+SUBDIRS = src po
 
-theodoratranscodedocdir = ${prefix}/doc/theodoratranscode
-theodoratranscodedoc_DATA = \
+theodoratranscode_cdocdir = ${prefix}/doc/theodoratranscode_c
+theodoratranscode_cdoc_DATA = \
+	README\
+	COPYING\
 	AUTHORS\
 	ChangeLog\
 	INSTALL\
-	NEWS\
-	LICENSE\
-	README.md
+	NEWS
 
 
-EXTRA_DIST = $(theodoratranscodedoc_DATA)
+INTLTOOL_FILES = intltool-extract.in \
+	intltool-merge.in \
+	intltool-update.in
+
+EXTRA_DIST = $(theodoratranscode_cdoc_DATA) \
+	$(INTLTOOL_FILES)
+
+DISTCLEANFILES = intltool-extract \
+	intltool-merge \
+	intltool-update \
+	po/.intltool-merge-cache
 
 
 # Remove doc directory on uninstall
 uninstall-local:
-	-rm -r $(theodoratranscodedocdir)
+	-rm -r $(theodoratranscode_cdocdir)
