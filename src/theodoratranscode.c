@@ -90,10 +90,10 @@ enum  {
 
 /* UI file 
  uncomment this line if it is located at /usr/local/share/theodoratranscode/theodoratranscode.ui */
-// #define MAIN_UI_FILE PACKAGE_DATA_DIR "/" "theodoratranscode.ui"
+#define MAIN_UI_FILE PACKAGE_DATA_DIR "/" "theodoratranscode.ui"
 
 /* uncomment this line, if you just testing and not want to install this application */
-#define MAIN_UI_FILE "src/theodoratranscode.ui"
+// #define MAIN_UI_FILE "src/theodoratranscode.ui"
 
 
 Main* main_new (void);

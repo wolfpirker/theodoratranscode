@@ -35,22 +35,20 @@ to uninstall the programm:
 Tips:
 1)	In case you only want to compile and make the program without actually
 	installing it: 
-	* in the file theodoratranscode.vala comment the line 49, so that it looks like: 
-	//const string UI_FILE = Config.PACKAGE_DATA_DIR + "/" + "theodoratranscode.ui";
-	* in this same file uncomment the line afterwards:
-	const string UI_FILE = "src/theodoratranscode.ui";
-	Then use the command:
-	* mv ./src/theodoratranscode ./theodoratranscode
+	* in the file theodoratranscode.c comment the line 93, so that it looks like: 
+	//#define MAIN_UI_FILE PACKAGE_DATA_DIR "/" "theodoratranscode.ui"
+	* in this same file uncomment the line, which is 3 lines below:
+	#define MAIN_UI_FILE "src/theodoratranscode.ui"
+	Then use following commands:
+	$ make
+	$ mv ./src/theodoratranscode ./theodoratranscode
 	Now it should be possible to use theodoratranscode.
 
 2)	the UI with the InfoBars does not work on Debian 7 based and some other systems.
-	If you are on a Debian 7 based system or in case you do not like the UI with 
-	the infobars, use the file theodoratranscode_debian.ui
-	* in theodoratranscode.vala comment the line 49 
-	* either uncomment the line 53, in case you want to install it as root and then
-	make sure that the file theodoratranscode_debian.ui is at the correct location
-	* or uncomment line 54, to just use the binary file from the theodoratranscode
-	folder (see tip 1)
+	But a UI file without InfoBars is provided. It was tested and should work. 
+	Just replace the default UI file (theodoratranscode.ui) with the file
+	theodoratranscode_debian.ui; either rename it to theodoratranscode.ui or change the
+	name in the code to theodoratranscode_debian.ui (see tip 1).
 
 The program was tested with success on Fedora 17, Fedora 18, Fedora 19 alpha, 
 and a Debian Wheezy (soon Debian 7) based system. 
