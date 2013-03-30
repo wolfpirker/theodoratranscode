@@ -82,6 +82,17 @@ namespace NSWidgets{
 				var subtitle_fbtn = builder.get_object("fbtn_basics1") as Gtk.FileChooser;
 				c = c + " --subtitles " + subtitle_fbtn.get_filename();
 			}
+
+		/* check the terminal information */
+			var terminal_e = builder.get_object("ce_terminal0") as Gtk.Entry;
+			string terminal = terminal_e.get_text();
+			if (terminal==""){
+				built_infbar_layout(Gtk.MessageType.WARNING, 
+				                "Specify a terminal first, please!");
+				return;
+			}
+			c = terminal + " -e \"" + c;
+			
 		/* make the command complete*/
 			c = c + " '" + input + "' -o '" + target + "'\"";
 			
@@ -420,10 +431,6 @@ namespace NSWidgets{
 				c = c.replace("--two-pass", "");
 				c = c.replace("ffmpeg2theora --st",	"ffmpeg2theora --speedlevel 2 --st");
 			}
-
-		/* cut off the terminal info at the beginning*/
-			int index = c.index_of("-e \"ffm", 3) + 4;
-			c = c.splice(0, index, "");
 			
 			stdout.printf("execute command: \n %s\n", c);
 			

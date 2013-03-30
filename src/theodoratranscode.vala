@@ -34,6 +34,8 @@ public class Main : Gtk.Application
 	protected Gtk.Label lbl_audio;
 	protected Gtk.Label lbl_other;
 
+	
+
 	private string _active_tab = "basics";
 	public string active_tab{
 		get {return _active_tab;}
@@ -44,8 +46,11 @@ public class Main : Gtk.Application
 	 * Uncomment this line when you are done testing and building a tarball
 	 * or installing
 	 */
-	const string UI_FILE = Config.PACKAGE_DATA_DIR + "/" + "theodoratranscode.ui";
-	//const string UI_FILE = "src/theodoratranscode.ui";
+	//const string UI_FILE = Config.PACKAGE_DATA_DIR + "/" + "theodoratranscode.ui";
+	const string UI_FILE = "src/theodoratranscode.ui";
+
+	/* without infobars, for compatibility with Debian Wheezy -> not working yet */
+	// const string UI_FILE = "src/theodoratranscode_debian.ui";
 	
 	/* ANJUTA: Widgets declaration for theodoratranscode.ui - DO NOT REMOVE */
 	
@@ -97,7 +102,7 @@ public class Main : Gtk.Application
 			                                           Gtk.IconSize.DIALOG);
 		}
 		error_infbar = new Gtk.InfoBar() as Gtk.InfoBar;
-		var error_infbar_ca = error_infbar.get_content_area ();
+		var error_infbar_ca = error_infbar.get_content_area () as Gtk.Container;
 		var error_label = new Gtk.Label(message);
 		error_infbar.set_message_type(type);
 

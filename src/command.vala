@@ -28,7 +28,7 @@ namespace NSCommand{
 
 		private void set_command(){
 			uint i=0;
-			string c_start="\"ffmpeg2theora";
+			string c_start="ffmpeg2theora";
 			string[] temp= new string[5];
 			uint8 count=0;
 			
@@ -61,13 +61,10 @@ namespace NSCommand{
 							c_start += " " + val;
 							break;
 						case 25: // terminal
-							c_start = val + " -e " + c_start; 
-							// FIXME: add ROX-Term as possible terminal
+							// c_start = val + " -e " + c_start; (better just ignore this case) 
 							break;
 						default: /* 1, 2, 5, 6, 11, 13, 20, 21, 22, 23, 26-29
 								 * and booleans 3, 17, 18, 19 */ // OK
-							/* TODO: if i=8 (endtime) only set it when cbtn is toggled! needs own case! */
-							/* */
 							if (val=="true") c_start += " " + aliases[i];
 							else if (val=="false") ; 
 							else if (val=="") ;

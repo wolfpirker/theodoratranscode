@@ -275,7 +275,7 @@ namespace NSWidgets{
 		{
 			//var show_info_button = builder.get_object("btn_show_info") as Button;
 			infobar = new Gtk.InfoBar();
-			var infobar_content = infobar.get_content_area ();
+			var infobar_content = infobar.get_content_area () as Gtk.Container;
 			var grid_video = new Gtk.Grid();
 			var grid_audio = new Gtk.Grid();
 			var grid_other = new Gtk.Grid();
@@ -461,7 +461,7 @@ namespace NSWidgets{
 			var advice_infobar = new Gtk.InfoBar() as Gtk.InfoBar;
 			var box = builder.get_object ("box_on_top_of_sbar") as Gtk.Box;
 			var idea = new Gtk.Image.from_stock (Gtk.Stock.DIALOG_INFO, Gtk.IconSize.DIALOG);
-			var infobar_content = advice_infobar.get_content_area ();
+			var infobar_content = advice_infobar.get_content_area () as Gtk.Container;
 			box.show();
 		
 
