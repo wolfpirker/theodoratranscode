@@ -15,7 +15,8 @@ than with ffmpeg2theora
 
 About the name:
 The name "Theodora Transcode" was partly inspired by the transcoder "Arista Transcode".
-The video codec ffmpeg2theora uses is called Theora, so I though Theodora is a good name.  
+The video codec which is used byffmpeg2theora is called Theora, so I thought Theodora 
+is a great name.  
 
 The name "Theodora" has its origin in the Greek language (theos = god, doron = gift).
 A Russian form of this name is Fedora.
@@ -24,13 +25,11 @@ Plans:
 * currently I have not big plans with more features, but sure the application will get
 more polished in the next months
 * midterm TODO's:
-	- better integrate in GNOME 3 (instead of giving the easy possibility to destroy
-the app during conversion, make use of the notification bar)
+	- better integration in GNOME 3
 	- possibly give better Feedback, in the GUI when there is an ongoing conversion
-	- perhaps: make the program compatible with some Windows releases
 	- perhaps: support several languages 
 * possiblities in the longer term:  
-	- instead of only being a GUI for ffmpeg2theora, it might be possible to implement
+	- instead of only being a GUI for ffmpeg2theora, it is surely possible to implement
 	other commandline transcoders as alternative (e.g. ffmpeg, or commandline tools
 	for upcoming codecs such as Daala, VP9)
 
