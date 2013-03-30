@@ -14,6 +14,7 @@ than with ffmpeg2theora
 ...this program tries to be better with that
 
 About the name:
+
 The name "Theodora Transcode" was partly inspired by the transcoder "Arista Transcode".
 The video codec ffmpeg2theora uses is called Theora, so I though Theodora is a good name.  
 
@@ -28,12 +29,10 @@ more polished in the next months
 the app during conversion, make use of the notification bar)
 	- possibly give better Feedback, in the GUI when there is an ongoing conversion
 	- perhaps: make the program compatible with some Windows releases
-	- perhaps: support several languages 
 * possiblities in the longer term:  
 	- instead of only being a GUI for ffmpeg2theora, it might be possible to implement
-	other commandline transcoders as alternative (e.g. ffmpeg, or commandline tools
-	for upcoming codecs such as Daala, VP9)
+	other commandline transcoders as alternative (e.g. ffmpeg, h264enc, or commandline 
+	tools for upcoming codecs such as Daala, VP9)
 
-If you have any suggestions, feedback or if you want to comment on the code of my program,
+If you have any suggestions, feedback or if you want to contribute somehow,
 feel free to send me a message to w_pirker@gmx.de 
-Contributions in the form of improvements to the code are very appreciated!
