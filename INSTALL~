@@ -1,0 +1,54 @@
+Installation Instructions
+*************************
+
+to install and use this program you will need following dependencies:
+ * glib2-devel (under Debian libglib2.0-dev)
+ * json-glib-devel (under Debian: libjson-glib-dev)
+ * gtk3-devel (version >=3.4; under Debian libgtk-3-0-dev)
+ * ffmpeg2theora with all of it's dependencies (tested with version 0.27, 0.29) 
+ * and more (like gcc, make, glibc or libstdc++, etc)
+
+configure and compile it with the following from the projects root directory (as user):
+  > ./configure
+  > make
+
+In case you only want to test the program without installation, see the first tip below.
+
+Installation as root:
+  > make install
+  > mkdir /usr/local/share/theodoratranscode
+  > cp ./src/theodoratranscode.ui /usr/local/share/theodoratranscode
+(it could be that on some Linux systems the required UI file path differs, then
+ open theodoratranscode in terminal to see where the UI file is required)
+
+optional if there should be a icon in your Dektop Environment for theodoratranscode:
+  > cp ./src/theodoratranscode.desktop /usr/share/applications/
+  
+optional to clean the sources:
+  > make distclean
+
+to uninstall the programm:
+  > make uninstall
+  > rm /usr/local/share/theodoratranscode/theodoratranscode.ui
+  > rm /usr/share/applications/theodoratranscode.desktop
+
+Tips:
+1)	In case you only want to compile and make the program without actually
+	installing it: 
+	* in the file theodoratranscode.c comment the line 93, so that it looks like: 
+	//#define MAIN_UI_FILE PACKAGE_DATA_DIR "/" "theodoratranscode.ui"
+	* in this same file uncomment the line, which is 3 lines below:
+	#define MAIN_UI_FILE "src/theodoratranscode.ui"
+	Then use following commands:
+	$ make
+	$ mv ./src/theodoratranscode ./theodoratranscode
+	Now it should be possible to use theodoratranscode.
+
+2)	the UI with the InfoBars does not work on Debian 7 based and some other systems.
+	But a UI file without InfoBars is provided. It was tested and should work. 
+	Just replace the default ui file (theodoratranscode.ui) with the file
+	theodoratranscode_debian.ui; either rename it to theodoratranscode.ui or change the
+	name in the code to theodoratranscode_debian.ui (see tip 1).
+
+The program was tested with success on Fedora 17, Fedora 18, Fedora 19 alpha, 
+and a Debian Wheezy (soon Debian 7) based system. 
