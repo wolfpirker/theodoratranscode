@@ -2,18 +2,18 @@ Installation Instructions
 *************************
 
 to install and use this program you will need following dependencies:
- * glib2-devel 
- * json-glib-devel
- * gtk3-devel (>= 3.4)
- * Vala, valac (tested with Vala 0.16, 0.18, 0.20 )
- * ffmpeg2theora with all of it's dependencies (tested with ffmpeg2theora 0.29) 
- * and more (like gcc, make, glibc, etc)
+ * glib2-devel (under Debian libglib2.0-dev)
+ * json-glib-devel (under Debian: libjson-glib-dev)
+ * gtk3-devel (version >=3.4; under Debian libgtk-3-0-dev)
+ * Vala, valac (tested with Vala 0.16, 0.18.1, 0.20; under Debian libvala-0.16-0)
+ * ffmpeg2theora with all of it's dependencies (tested with version 0.27, 0.29) 
+ * and more (like gcc, make, glibc or libstdc++, etc)
 
 configure and compile it with the following from the projects root directory (as user):
   > ./configure
   > make
 
-In case you only want to test the program without installation, see the tip below.
+In case you only want to test the program without installation, see the first tip below.
 
 Installation as root:
   > make install
@@ -33,17 +33,25 @@ to uninstall the programm:
   > rm /usr/local/share/theodoratranscode/theodoratranscode.ui
   > rm /usr/share/applications/theodoratranscode.desktop
 
-Tip:
-In case you only want to compile and make the program without actually
-installing it: 
-* in the file theodoratranscode.vala comment the line 47, so that it looks like: 
-//const string UI_FILE = Config.PACKAGE_DATA_DIR + "/" + "theodoratranscode.ui";
-* in this same file uncomment the line afterwards:
-const string UI_FILE = "src/theodoratranscode.ui";
-Then use the command:
-* mv ./src/theodoratranscode ./theodoratranscode
-Now it should be possible to use theodoratranscode.
+Tips:
+1)	In case you only want to compile and make the program without actually
+	installing it: 
+	* in the file theodoratranscode.vala comment the line 49, so that it looks like: 
+	//const string UI_FILE = Config.PACKAGE_DATA_DIR + "/" + "theodoratranscode.ui";
+	* in this same file uncomment the line afterwards:
+	const string UI_FILE = "src/theodoratranscode.ui";
+	Then use the command:
+	* mv ./src/theodoratranscode ./theodoratranscode
+	Now it should be possible to use theodoratranscode.
 
-The program was during the development successfully tested on Fedora 17 and Fedora 18. 
-Under Debian Wheezy it might not work. Last time I tested it in Anjuta under a Debian Wheezy
-based distro it did not work, because of the InfoBars.
+2)	the UI with the InfoBars does not work on Debian 7 based and some other systems.
+	If you are on a Debian 7 based system or in case you do not like the UI with 
+	the infobars, use the file theodoratranscode_debian.ui
+	* in theodoratranscode.vala comment the line 49 
+	* either uncomment the line 53, in case you want to install it as root and then
+	make sure that the file theodoratranscode_debian.ui is at the correct location
+	* or uncomment line 54, to just use the binary file from the theodoratranscode
+	folder (see tip 1)
+
+The program was tested with success on Fedora 17, Fedora 18, Fedora 19 alpha, 
+and a Debian Wheezy (soon Debian 7) based system. 

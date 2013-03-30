@@ -1,7 +1,7 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*-  */
 /*
  * theodoratranscode.c
- * Copyright (C) 2013 Wolfgang Pirker <wolfi@localhost.localdomain>
+ * Copyright (C) 2013 Wolfgang Pirker <w_pirker@gmx.de>
  * 
  * theodoratranscode is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -34,7 +34,7 @@ public class Main : Gtk.Application
 	protected Gtk.Label lbl_audio;
 	protected Gtk.Label lbl_other;
 
-	
+	bool gtk_builder_without_infobars = false;
 
 	private string _active_tab = "basics";
 	public string active_tab{
@@ -46,11 +46,12 @@ public class Main : Gtk.Application
 	 * Uncomment this line when you are done testing and building a tarball
 	 * or installing
 	 */
-	//const string UI_FILE = Config.PACKAGE_DATA_DIR + "/" + "theodoratranscode.ui";
-	const string UI_FILE = "src/theodoratranscode.ui";
+	const string UI_FILE = Config.PACKAGE_DATA_DIR + "/" + "theodoratranscode.ui";
+	//const string UI_FILE = "src/theodoratranscode.ui";
 
-	/* without infobars, for compatibility with Debian Wheezy -> not working yet */
-	// const string UI_FILE = "src/theodoratranscode_debian.ui";
+	/* for Debian 7 compatibility: */
+	//const string UI_FILE = Config.PACKAGE_DATA_DIR + "/" + "theodoratranscode_debian.ui";
+	//const string UI_FILE = "src/theodoratranscode_debian.ui";
 	
 	/* ANJUTA: Widgets declaration for theodoratranscode.ui - DO NOT REMOVE */
 	
@@ -85,6 +86,10 @@ public class Main : Gtk.Application
 		catch (Error e) {
 			stderr.printf ("Could not load UI: %s\n", e.message);
 		}
+
+		/* test if the GUI with or without infobars is used */
+		var test_infobar = builder.get_object("infbar_basics") as Gtk.InfoBar;
+		if (test_infobar == null) gtk_builder_without_infobars = true;
 	}
 
 	/* create a general info, warning or error infobar */

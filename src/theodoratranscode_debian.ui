@@ -138,12 +138,43 @@
     <property name="step_increment">0.125</property>
     <property name="page_increment">0.25</property>
   </object>
-  <object class="GtkDialog" id="dialog_after_crop">
+  <object class="GtkFileFilter" id="filefilter_subtitle">
+    <patterns>
+      <pattern>*.srt</pattern>
+    </patterns>
+  </object>
+  <object class="GtkFileFilter" id="filefilter_video">
+    <patterns>
+      <pattern>*.flv</pattern>
+      <pattern>*.ogv</pattern>
+      <pattern>*.avi</pattern>
+      <pattern>*.ogg</pattern>
+      <pattern>*.webm</pattern>
+      <pattern>*.mkv</pattern>
+      <pattern>*.ogm</pattern>
+      <pattern>*.mpg</pattern>
+      <pattern>*.divx</pattern>
+      <pattern>*.mov</pattern>
+      <pattern>*.3gp</pattern>
+      <pattern>*.m4a</pattern>
+      <pattern>*.3g2</pattern>
+      <pattern>*.mj2</pattern>
+      <pattern>*.mp4</pattern>
+      <pattern>*.MP4</pattern>
+      <pattern>*.AVI</pattern>
+      <pattern>*.FLV</pattern>
+      <pattern>*.MKV</pattern>
+      <pattern>*.MOV</pattern>
+      <pattern>*.mpeg</pattern>
+    </patterns>
+  </object>
+  <object class="GtkDialog" id="infbar_update_resolution">
     <property name="can_focus">False</property>
     <property name="halign">start</property>
     <property name="valign">start</property>
     <property name="border_width">5</property>
     <property name="type_hint">dialog</property>
+    <property name="decorated">False</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="width_request">320</property>
@@ -157,11 +188,13 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="btn_yes">
+                <property name="use_action_appearance">False</property>
                 <property name="width_request">60</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="margin_right">12</property>
+                <property name="use_action_appearance">False</property>
                 <signal name="released" handler="on_btn_yes_released" object="grid_resolution" swapped="no"/>
                 <signal name="clicked" handler="on_btn_yes_clicked" object="grid_cropping" swapped="no"/>
                 <child>
@@ -204,10 +237,12 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_no">
+                <property name="use_action_appearance">False</property>
                 <property name="width_request">60</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_action_appearance">False</property>
                 <signal name="released" handler="on_btn_no_released" object="infbar_update_resolution" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="box6">
@@ -298,40 +333,13 @@
       <action-widget response="0">btn_no</action-widget>
     </action-widgets>
   </object>
-  <object class="GtkFileFilter" id="filefilter_subtitle">
-    <patterns>
-      <pattern>*.srt</pattern>
-    </patterns>
-  </object>
-  <object class="GtkFileFilter" id="filefilter_video">
-    <patterns>
-      <pattern>*.flv</pattern>
-      <pattern>*.ogv</pattern>
-      <pattern>*.avi</pattern>
-      <pattern>*.ogg</pattern>
-      <pattern>*.webm</pattern>
-      <pattern>*.mkv</pattern>
-      <pattern>*.ogm</pattern>
-      <pattern>*.mpg</pattern>
-      <pattern>*.divx</pattern>
-      <pattern>*.mov</pattern>
-      <pattern>*.3gp</pattern>
-      <pattern>*.m4a</pattern>
-      <pattern>*.3g2</pattern>
-      <pattern>*.mj2</pattern>
-      <pattern>*.mp4</pattern>
-      <pattern>*.MP4</pattern>
-      <pattern>*.AVI</pattern>
-      <pattern>*.FLV</pattern>
-      <pattern>*.MKV</pattern>
-      <pattern>*.MOV</pattern>
-      <pattern>*.mpeg</pattern>
-    </patterns>
-  </object>
   <object class="GtkTextBuffer" id="txb_f2theora_help"/>
   <object class="GtkWindow" id="window">
+    <property name="width_request">500</property>
+    <property name="height_request">450</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <signal name="destroy" handler="main_on_destroy" swapped="no"/>
     <child>
       <object class="GtkBox" id="box12">
         <property name="visible">True</property>
@@ -342,14 +350,14 @@
         <child>
           <object class="GtkBox" id="box25">
             <property name="width_request">90</property>
-            <property name="height_request">480</property>
+            <property name="height_request">380</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
             <property name="valign">start</property>
             <child>
               <object class="GtkBox" id="box_tabs1">
-                <property name="height_request">480</property>
+                <property name="height_request">330</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
@@ -369,9 +377,11 @@
                 </child>
                 <child>
                   <object class="GtkRadioButton" id="rbtn_basics">
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
+                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">False</property>
@@ -420,9 +430,11 @@
                 </child>
                 <child>
                   <object class="GtkRadioButton" id="rbtn_quality">
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
+                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">False</property>
                     <property name="group">rbtn_basics</property>
@@ -471,9 +483,11 @@
                 </child>
                 <child>
                   <object class="GtkRadioButton" id="rbtn_crop">
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
+                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">False</property>
                     <property name="group">rbtn_basics</property>
@@ -518,9 +532,11 @@
                 </child>
                 <child>
                   <object class="GtkRadioButton" id="rbtn_other">
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
+                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">False</property>
                     <property name="group">rbtn_basics</property>
@@ -582,9 +598,11 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_help">
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="use_action_appearance">False</property>
                     <signal name="clicked" handler="on_btn_help_clicked" swapped="no"/>
                     <child>
                       <object class="GtkGrid" id="grid5">
@@ -644,9 +662,11 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_advice">
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="use_action_appearance">False</property>
                     <signal name="clicked" handler="on_btn_advice_clicked" swapped="no"/>
                     <child>
                       <object class="GtkBox" id="box30">
@@ -705,11 +725,13 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_conversion">
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="valign">end</property>
                     <property name="hexpand">True</property>
+                    <property name="use_action_appearance">False</property>
                     <property name="image_position">bottom</property>
                     <signal name="clicked" handler="on_btn_conversion_clicked_update_timelabel" object="grid_time_basics" swapped="no"/>
                     <signal name="clicked" handler="on_btn_conversion_clicked" swapped="no"/>
@@ -774,11 +796,11 @@
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkGrid" id="grid_basics">
+                  <object class="GtkGrid" id="infbar_basics">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkLabel" id="lbl_basics2">
+                      <object class="GtkLabel" id="lbl_basics">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
@@ -898,11 +920,13 @@
                     <child>
                       <object class="GtkRadioButton" id="rbtn_basics0">
                         <property name="label" translatable="yes">none</property>
+                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="margin_left">15</property>
                         <property name="margin_top">12</property>
+                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
                         <property name="draw_indicator">True</property>
                         <property name="group">rbtn_basics_default</property>
@@ -938,11 +962,13 @@
                     <child>
                       <object class="GtkRadioButton" id="rbtn_basics1">
                         <property name="label" translatable="yes">subtitle file</property>
+                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="margin_left">15</property>
                         <property name="margin_top">6</property>
+                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
                         <property name="draw_indicator">True</property>
                         <property name="group">rbtn_basics_default</property>
@@ -957,11 +983,13 @@
                     <child>
                       <object class="GtkRadioButton" id="rbtn_basics_default">
                         <property name="label" translatable="yes">subtitle as from input</property>
+                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="margin_left">15</property>
                         <property name="margin_top">6</property>
+                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
                         <property name="active">True</property>
                         <property name="draw_indicator">True</property>
@@ -1166,7 +1194,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="lbl_basics4">
+                              <object class="GtkLabel" id="lbl_basics0">
                                 <property name="can_focus">False</property>
                                 <property name="no_show_all">True</property>
                                 <property name="label" translatable="yes">0</property>
@@ -1258,7 +1286,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="lbl_basics3">
+                              <object class="GtkLabel" id="lbl_basics1">
                                 <property name="can_focus">False</property>
                                 <property name="no_show_all">True</property>
                                 <property name="label" translatable="yes">x</property>
@@ -1327,7 +1355,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkGrid" id="grid_quality">
+                  <object class="GtkGrid" id="infbar_quality">
                     <property name="can_focus">False</property>
                     <property name="no_show_all">True</property>
                     <child>
@@ -1397,7 +1425,6 @@
                             <property name="fill_level">10</property>
                             <property name="round_digits">0</property>
                             <property name="digits">0</property>
-                            <property name="has_origin">False</property>
                             <property name="value_pos">right</property>
                           </object>
                           <packing>
@@ -1466,11 +1493,13 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality0">
                             <property name="label" translatable="yes">fix</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="halign">end</property>
                             <property name="margin_left">15</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_cbtn_quality0_toggled" object="cbtn_quality5" swapped="no"/>
@@ -1483,13 +1512,15 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkCheckButton" id="cbtn_quality">
+                          <object class="GtkCheckButton" id="cbtn_quality2">
                             <property name="label" translatable="yes">same as input</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="halign">end</property>
                             <property name="margin_left">10</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
@@ -1504,11 +1535,13 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality1">
                             <property name="label" translatable="yes">fix</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="halign">end</property>
                             <property name="margin_left">10</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
                           </object>
@@ -1522,12 +1555,14 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality3">
                             <property name="label" translatable="yes">optimize</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="halign">start</property>
                             <property name="valign">start</property>
                             <property name="margin_left">15</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
@@ -1542,11 +1577,13 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality4">
                             <property name="label" translatable="yes">soft-target</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="valign">start</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
                           </object>
@@ -1560,11 +1597,13 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_quality5">
                             <property name="label" translatable="yes">two-pass</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="valign">start</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
                           </object>
@@ -1746,6 +1785,7 @@
                                 <property name="round_digits">3</property>
                                 <property name="digits">3</property>
                                 <property name="value_pos">right</property>
+                                <signal name="value-changed" handler="on_scale_scale_value_changed" object="grid_resolution" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1796,7 +1836,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkGrid" id="grid_crop">
+                  <object class="GtkGrid" id="infbar_crop">
                     <property name="can_focus">False</property>
                     <property name="no_show_all">True</property>
                     <child>
@@ -1818,7 +1858,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkGrid" id="grid_cropping1">
+                      <object class="GtkGrid" id="grid_cropping">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="valign">start</property>
@@ -1900,7 +1940,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkSpinButton" id="sbtn_crop4">
+                          <object class="GtkSpinButton" id="sbtn_crop0">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="max_length">3</property>
@@ -1919,7 +1959,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkSpinButton" id="sbtn_crop5">
+                          <object class="GtkSpinButton" id="sbtn_crop1">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="max_length">3</property>
@@ -1938,7 +1978,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkSpinButton" id="sbtn_crop6">
+                          <object class="GtkSpinButton" id="sbtn_crop2">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="max_length">3</property>
@@ -1957,7 +1997,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkSpinButton" id="sbtn_crop7">
+                          <object class="GtkSpinButton" id="sbtn_crop3">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="max_length">3</property>
@@ -2033,6 +2073,7 @@
                         <property name="can_focus">False</property>
                         <child>
                           <object class="GtkButton" id="btn_preview">
+                            <property name="use_action_appearance">False</property>
                             <property name="height_request">34</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -2040,6 +2081,7 @@
                             <property name="valign">start</property>
                             <property name="margin_top">6</property>
                             <property name="margin_bottom">6</property>
+                            <property name="use_action_appearance">False</property>
                             <signal name="clicked" handler="on_btn_preview_clicked" swapped="no"/>
                             <child>
                               <object class="GtkBox" id="box32">
@@ -2200,11 +2242,13 @@
                         <child>
                           <object class="GtkCheckButton" id="cbtn_preview1">
                             <property name="label" translatable="yes">more speed, less quality</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="valign">center</property>
                             <property name="margin_left">4</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
@@ -2297,7 +2341,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkGrid" id="grid_color">
+                  <object class="GtkGrid" id="infbar_color">
                     <property name="can_focus">False</property>
                     <property name="no_show_all">True</property>
                     <child>
@@ -2511,7 +2555,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkGrid" id="grid_terminal">
+                  <object class="GtkGrid" id="infbar_terminal">
                     <property name="can_focus">False</property>
                     <property name="no_show_all">True</property>
                     <child>
@@ -2639,9 +2683,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkGrid" id="grid_profiles">
+                  <object class="GtkGrid" id="infbar_profiles">
                     <property name="can_focus">False</property>
                     <property name="no_show_all">True</property>
+                    <signal name="show" handler="on_infbar_profiles_show" swapped="no"/>
                     <child>
                       <object class="GtkLabel" id="lbl_profiles1">
                         <property name="visible">True</property>
@@ -2667,11 +2712,13 @@
                         <property name="can_focus">False</property>
                         <child>
                           <object class="GtkButton" id="btn_new_profile">
+                            <property name="use_action_appearance">False</property>
                             <property name="width_request">90</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="margin_top">8</property>
+                            <property name="use_action_appearance">False</property>
                             <signal name="clicked" handler="on_btn_new_profile_clicked" object="e_profile" swapped="no"/>
                             <child>
                               <object class="GtkBox" id="box39">
@@ -2715,11 +2762,13 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="btn_delete_profile">
+                            <property name="use_action_appearance">False</property>
                             <property name="width_request">90</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="margin_top">8</property>
+                            <property name="use_action_appearance">False</property>
                             <signal name="clicked" handler="on_btn_delete_profile_clicked" object="e_profile" swapped="no"/>
                             <child>
                               <object class="GtkBox" id="box40">
@@ -2763,11 +2812,13 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="btn_save_profile1">
+                            <property name="use_action_appearance">False</property>
                             <property name="width_request">90</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="margin_top">8</property>
+                            <property name="use_action_appearance">False</property>
                             <signal name="clicked" handler="on_btn_save_profile_clicked" swapped="no"/>
                             <child>
                               <object class="GtkBox" id="box41">
@@ -2850,17 +2901,19 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkGrid" id="grid11">
+                  <object class="GtkGrid" id="infbar_f2theora_help">
                     <property name="can_focus">False</property>
                     <property name="no_show_all">True</property>
                     <child>
                       <object class="GtkLinkButton" id="lbtn_ffmpeg2theora2">
                         <property name="label" translatable="yes">ffmpeg2theora --help</property>
+                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="has_tooltip">True</property>
                         <property name="halign">start</property>
+                        <property name="use_action_appearance">False</property>
                         <property name="relief">none</property>
                         <property name="uri">http://v2v.cc/~j/ffmpeg2theora/</property>
                       </object>
@@ -2872,36 +2925,19 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkTextView" id="textview_f2theora_help2">
-                        <property name="width_request">400</property>
-                        <property name="height_request">480</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="vscroll_policy">natural</property>
-                        <property name="left_margin">2</property>
-                        <property name="right_margin">2</property>
-                        <property name="indent">2</property>
-                        <property name="buffer">txb_f2theora_help</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">1</property>
-                        <property name="width">1</property>
-                        <property name="height">1</property>
-                      </packing>
-                    </child>
-                    <child>
                       <object class="GtkGrid" id="grid12">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
                           <object class="GtkButton" id="btn_f2theora_close">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="halign">end</property>
                             <property name="valign">end</property>
                             <property name="margin_left">12</property>
+                            <property name="use_action_appearance">False</property>
                             <signal name="clicked" handler="on_btn_f2theora_close_clicked" swapped="no"/>
                             <child>
                               <object class="GtkBox" id="box42">
@@ -2944,9 +2980,11 @@
                         <child>
                           <object class="GtkToggleButton" id="tbtn_show_filters">
                             <property name="label" translatable="yes">show filters</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
+                            <property name="use_action_appearance">False</property>
                             <signal name="toggled" handler="on_tbtn_show_filters_toggled" swapped="no"/>
                           </object>
                           <packing>
@@ -2960,6 +2998,35 @@
                       <packing>
                         <property name="left_attach">0</property>
                         <property name="top_attach">2</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkScrolledWindow" id="scrolledwindow1">
+                        <property name="width_request">440</property>
+                        <property name="height_request">380</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="hscrollbar_policy">never</property>
+                        <property name="shadow_type">in</property>
+                        <child>
+                          <object class="GtkTextView" id="textview_f2theora_help2">
+                            <property name="width_request">440</property>
+                            <property name="height_request">400</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="vscroll_policy">natural</property>
+                            <property name="left_margin">2</property>
+                            <property name="right_margin">2</property>
+                            <property name="indent">2</property>
+                            <property name="buffer">txb_f2theora_help</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
                       </packing>

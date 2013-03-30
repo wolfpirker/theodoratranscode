@@ -409,20 +409,20 @@ namespace NSWidgets{
 
 
 			if (active_tab == "other"){
-				var ibar = builder.get_object("infbar_color") as Gtk.InfoBar;
+				var ibar = builder.get_object("infbar_color") as Gtk.Widget;
 				ibar.hide();
-				ibar = builder.get_object("infbar_terminal") as Gtk.InfoBar;
+				ibar = builder.get_object("infbar_terminal") as Gtk.Widget;
 				ibar.hide();
-				ibar = builder.get_object("infbar_profiles") as Gtk.InfoBar;
+				ibar = builder.get_object("infbar_profiles") as Gtk.Widget;
 				ibar.hide();
 			}
 
 			else{
-				var ibar = builder.get_object("infbar_" + active_tab) as Gtk.InfoBar;
+				var ibar = builder.get_object("infbar_" + active_tab) as Gtk.Widget;
 				ibar.hide();
 			}
 			string info;
-			var infobar_f2theora = builder.get_object("infbar_f2theora_help") as Gtk.InfoBar;
+			var infobar_f2theora = builder.get_object("infbar_f2theora_help") as Gtk.Widget;
 			var textbuffer_f2theora = builder.get_object("txb_f2theora_help") as Gtk.TextBuffer;
 			var toggle_f2theora = builder.get_object("tbtn_show_filters") as Gtk.ToggleButton;
 			//stdout.printf("%s", info);

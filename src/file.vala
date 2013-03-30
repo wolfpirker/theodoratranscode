@@ -118,18 +118,23 @@ namespace NSFile{
 					val = node.type_name();
 					switch(val){
 						case "String":
+						case "gchararray":
 							val = node.get_string();
 							break;
 						case "Boolean":
+						case "gboolean":
 							val = node.get_boolean().to_string();
 							break;
 						case "Floating Point":
+						case "gdouble":
 							val = node.get_double().to_string();
 							break;
 						case "Integer":
+						case "gint64":
 							val = node.get_int().to_string("%d");
 								break;
 						default:
+							stdout.printf("type not in case: %s\n", val);
 							break;
 					}
 					_valuelist.append(val);

@@ -119,7 +119,7 @@ namespace NSWidgets{
 		[CCode (cname="on_rbtn_basics_toggled", instance_pos=-1)]
 		public void on_rbtn_basics_toggled (Gtk.ToggleButton sender) 
 		{
-			var ibar = this.builder.get_object("infbar_basics") as Gtk.InfoBar;
+			var ibar = this.builder.get_object("infbar_basics") as Gtk.Widget;
 			active_tab = "basics";
 			this.hide_infoboxes();
 			ibar.show();
@@ -137,7 +137,7 @@ namespace NSWidgets{
 		[CCode (cname="on_rbtn_quality_toggled", instance_pos=-1)]
 		public void on_rbtn_quality_toggled (Gtk.ToggleButton sender)
 		{
-			var ibar = this.builder.get_object("infbar_quality") as Gtk.InfoBar;
+			var ibar = this.builder.get_object("infbar_quality") as Gtk.Widget;
 			active_tab = "quality";
 			this.hide_infoboxes();
 			ibar.show();
@@ -154,7 +154,7 @@ namespace NSWidgets{
 		[CCode (cname="on_rbtn_crop_toggled", instance_pos=-1)]
 		public void on_rbtn_crop_toggled (Gtk.ToggleButton sender) 
 		{
-			var ibar = this.builder.get_object("infbar_crop") as Gtk.InfoBar;
+			var ibar = this.builder.get_object("infbar_crop") as Gtk.Widget;
 			active_tab = "crop";
 			this.hide_infoboxes();	
 			ibar.show();
@@ -170,10 +170,11 @@ namespace NSWidgets{
 
 		[CCode (cname="on_rbtn_other_toggled", instance_pos=-1)]
 		public void on_rbtn_other_toggled (Gtk.ToggleButton sender) 
-		{
-			var ibar = this.builder.get_object("infbar_color") as Gtk.InfoBar;
-			var ibar2 = this.builder.get_object("infbar_terminal") as Gtk.InfoBar;
-			var ibar3 = this.builder.get_object("infbar_profiles") as Gtk.InfoBar;
+		{			
+			var ibar = this.builder.get_object("infbar_color") as Gtk.Widget;
+			var ibar2 = this.builder.get_object("infbar_terminal") as Gtk.Widget;
+			var ibar3 = this.builder.get_object("infbar_profiles") as Gtk.Widget;
+			
 			active_tab = "other";
 			this.hide_infoboxes();
 			ibar.show();
@@ -193,31 +194,31 @@ namespace NSWidgets{
 			string[] categories = {"infbar_basics", "infbar_quality", "infbar_crop",
 				"infbar_color", "infbar_terminal", "infbar_profiles", "infbar_f2theora_help"};
 
-			foreach (string infobox in categories)
-			{
-				var ibar = this.builder.get_object(infobox) as Gtk.InfoBar;
+			foreach (string infobox in categories){
+				var ibar = this.builder.get_object(infobox) as Gtk.Widget;
 				ibar.hide();
 			}
 		}
 
 		[CCode (cname="on_btn_f2theora_close_clicked", instance_pos=-1)]
 		public void on_btn_f2theora_close_clicked (Gtk.Widget sender) {
-			var infbar_f2theora = builder.get_object("infbar_f2theora_help") as Gtk.InfoBar;
-			var current_tab_infbar = builder.get_object("infbar_" + active_tab) as Gtk.InfoBar;
+			var infbar_f2theora = builder.get_object("infbar_f2theora_help") as Gtk.Widget;
+			var current_tab_infbar = builder.get_object("infbar_" + active_tab) as Gtk.Widget;
+			
 			infbar_f2theora.hide();
 			current_tab_infbar.show();
 			if (active_tab == "other")
 			{
-				var ibar = builder.get_object("infbar_color") as Gtk.InfoBar;
+				var ibar = builder.get_object("infbar_color") as Gtk.Widget;
 				ibar.show();
-				ibar = builder.get_object("infbar_terminal") as Gtk.InfoBar;
+				ibar = builder.get_object("infbar_terminal") as Gtk.Widget;
 				ibar.show();
-				ibar = builder.get_object("infbar_profiles") as Gtk.InfoBar;
+				ibar = builder.get_object("infbar_profiles") as Gtk.Widget;
 				ibar.show();
 			}
 
 			else{
-				var ibar = builder.get_object("infbar_" + active_tab) as Gtk.InfoBar;
+				var ibar = builder.get_object("infbar_" + active_tab) as Gtk.Widget;
 				ibar.show();
 			}
 		}
