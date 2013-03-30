@@ -35,8 +35,9 @@ the app during conversion, make use of the notification bar)
 	other commandline transcoders as alternative (e.g. ffmpeg, h264enc, or commandline 
 	tools for upcoming codecs such as Daala, VP9)
 
-Note for anyone playing with the C or Vala files: this program was developed with Vala. But
-to avoid the Vala dependency: the Makefiles are configured to use the C files instead! 
+Note for anyone playing with the C or Vala files: this program was developed with Vala. 
+But to avoid the Vala dependency: the Make-, configure- and scriptfiles are configured to 
+use the C files instead! 
 
 If you have any suggestions, feedback or if you want to contribute somehow,
 feel free to send me a message to w_pirker@gmx.de 
