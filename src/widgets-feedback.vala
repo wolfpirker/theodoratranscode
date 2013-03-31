@@ -53,41 +53,27 @@ namespace NSWidgets{
  
 		[CCode (cname="on_btn_yes_clicked", instance_pos=-1)]
 		protected void on_btn_yes_clicked (Gtk.Button button, 
-		                                                 Gtk.Grid grid_crop){			
-			uint i=0;
-			List<Gtk.SpinButton> sbtn_list = new List <Gtk.SpinButton> ();
-			int[] temp_array = {0, 0, 0, 0};
+		                                   Gtk.Grid grid_crop){
+			//List<Gtk.SpinButton> sbtn_list = new List <Gtk.SpinButton> ();
 			
 			update_resolution_on_cropping=true;
 			question_was_asked=true;		
 
-			/* update the cropping struct, to update later the values in the height sbtn */
-			sbtn_list.append(grid_crop.get_child_at(3, 0) as Gtk.SpinButton) ; // top
-			sbtn_list.append(grid_crop.get_child_at(5, 1) as Gtk.SpinButton); // right
-			sbtn_list.append(grid_crop.get_child_at(3, 2) as Gtk.SpinButton); // bottom
-			sbtn_list.append(grid_crop.get_child_at(1, 1) as Gtk.SpinButton); // left
-
-			sbtn_list.foreach ((sbtn) => {
-				var adjust = sbtn.get_adjustment() as Gtk.Adjustment;
-				int temp = int.parse( (adjust.get_value()).to_string() );
-				
-				temp_array[i] = temp;
-				i++;
-			});
-			
-			crop.top = temp_array[0];
-			crop.right = temp_array[1];
-			crop.bottom = temp_array[2];
-			crop.left = temp_array[3];
-
-			/* Note: no access on builder objects ?! -> therefore signal 
-			 * on_btn_yes_clicked_released was added */
+			/* update the cropping struct, to update later the values in the height sbtn */						   
+			var sbtn = grid_crop.get_child_at(3, 0) as Gtk.SpinButton ; // top
+			crop.top = (int)sbtn.get_adjustment().get_value();
+			sbtn = grid_crop.get_child_at(5, 1) as Gtk.SpinButton; // right
+			crop.right = (int)sbtn.get_adjustment().get_value();								   
+			sbtn = grid_crop.get_child_at(3, 2) as Gtk.SpinButton; // bottom							   
+			crop.bottom = (int)sbtn.get_adjustment().get_value();								   
+			grid_crop.get_child_at(1, 1) as Gtk.SpinButton; // left
+			crop.left = (int)sbtn.get_adjustment().get_value();
+								  
 		}
 
 		
 		[CCode (cname="on_btn_yes_released", instance_pos=-1)]
 		protected void on_btn_yes_released(Gtk.Button button, Gtk.Grid grid_res){
-			stdout.printf("button released\n");
 			update_resolution_without_builder(grid_res);
 
 			// destroy infobar
